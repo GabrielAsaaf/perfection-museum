@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Untouchable Gallery — Identidade visual v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sand:#E8D5B7; --cloud:#EBE1DC; --ink:#4E1819;
+  --red:#B11C38; --red-deep:#790A1C; --coral:#E7564E;
+  --sky:#589491; --frame:#A2693F;
+  --err-bg:#F6D5D0; --err:#790A1C; --ok-bg:#DCEBE6; --ok:#24605C;
+  --radius:24px; --shadow:0 14px 34px rgba(110,38,25,.16);
+  --display:'Anton',Impact,'Arial Narrow',sans-serif; --body:'Nunito',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{background:var(--sand);color:var(--ink);font:400 1rem/1.65 var(--body);padding:3rem 1.5rem 5rem}
+body::before{content:"";position:fixed;inset:10px;border:2px solid var(--frame);border-radius:18px;pointer-events:none;z-index:5}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.07;z-index:4;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+main{max-width:980px;margin:0 auto}
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.03em;line-height:1.1}
+h2{font-size:2rem;color:var(--red)}
+h3{font-size:1.25rem;margin-bottom:.2rem}
+.title{font-size:clamp(3rem,11vw,6.8rem);color:var(--coral);
+  text-shadow:-1px 1px 0 var(--red),-2px 2px 0 var(--red),-3px 3px 0 var(--red),-4px 4px 0 var(--red),-5px 5px 0 #98122F,-6px 6px 0 #98122F,-7px 7px 0 var(--red-deep),-8px 8px 0 var(--red-deep),-9px 9px 0 var(--red-deep),-14px 16px 22px rgba(78,24,25,.35)}
+.concept{font:700 1.4rem var(--body);margin-top:1.8rem}
+.lead{max-width:56ch;margin-top:.5rem}
+.row{display:grid;gap:1rem 3rem;padding-top:5rem}
+@media(min-width:820px){.row{grid-template-columns:200px 1fr}}
+.note{font-size:.9rem;max-width:62ch;margin-bottom:1.25rem;opacity:.85}
+.card{background:var(--cloud);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.5rem}
+.dots{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.9rem 1rem}
+.dot{display:flex;gap:.6rem;align-items:center;font-size:.85rem;line-height:1.3}
+.dot i{flex:0 0 34px;height:34px;border-radius:50%;border:1px solid rgba(78,24,25,.25)}
+.dot b{display:block;font-weight:700}
+.dot.used b::after{content:" · usada";font-weight:600;color:var(--red)}
+.sw{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.25rem 1rem}
+.chip{height:120px;border-radius:var(--radius) var(--radius) var(--radius) 6px;box-shadow:var(--shadow);margin-bottom:.6rem}
+.sw b{display:block}
+.sw span{font-size:.88rem;display:block;line-height:1.4}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+td,th{padding:.55rem .4rem;text-align:left;border-bottom:1px solid rgba(78,24,25,.15);vertical-align:top}
+th{font-weight:700}
+.type-row{display:flex;flex-wrap:wrap;gap:.3rem 1.5rem;align-items:baseline;padding:.9rem 0;border-bottom:1px solid rgba(78,24,25,.15)}
+.type-row:last-child{border:0}
+.type-row small{flex:0 0 200px;font-size:.82rem;opacity:.8}
+.btn{background:var(--red);color:#fff;border:0;border-radius:999px;padding:.7rem 1.7rem;font:700 1rem var(--body);cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--red-deep)}
+.btn:focus-visible,.ph:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.alert{border-radius:16px;padding:.75rem 1rem;font-size:.95rem;font-weight:600}
+.alert.err{background:var(--err-bg);color:var(--err)}
+.alert.ok{background:var(--ok-bg);color:var(--ok)}
+.shapes{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.25rem}
+.dir{font:400 clamp(1.8rem,4.5vw,2.8rem)/1.2 var(--display);text-transform:none;letter-spacing:.01em;color:var(--red);text-align:left}
+.screens{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.75rem;align-items:start}
+.screen{background:var(--sand);border:2px solid var(--frame);border-radius:30px;padding:1.2rem;box-shadow:var(--shadow)}
+.screen h4{font-size:1.7rem;color:var(--red);margin-bottom:.8rem}
+.filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem;font-size:.82rem;font-weight:700}
+.filters span{padding:.15rem .8rem;border-radius:999px;background:var(--cloud)}
+.filters span:first-child{background:var(--red);color:#fff}
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.ph{aspect-ratio:3/4;border-radius:20px;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:transform .5s ease,filter .5s ease}
+.ph::after{content:"";position:absolute;inset:0;background:rgba(235,225,220,0);transition:background .5s ease}
+.ph:hover,.ph:focus-visible{transform:scale(.84) translateY(-6px);filter:blur(4px)}
+.ph:hover::after,.ph:focus-visible::after{background:rgba(235,225,220,.45)}
+.p1{background:linear-gradient(180deg,#589491 0%,#C4BFCC 45%,#A17441 100%)}
+.p2{background:linear-gradient(180deg,#E7564E 0%,#D9BD9B 50%,#8E5B3A 100%)}
+.p3{background:linear-gradient(180deg,#C4BFCC 0%,#EBE1DC 40%,#589491 100%)}
+.p4{background:linear-gradient(180deg,#9E6F3E 0%,#D9BD9B 55%,#EBE1DC 100%)}
+.cap{font-size:.82rem;margin-top:.9rem;opacity:.85}
+.detail-img{height:220px;border-radius:var(--radius);background:linear-gradient(180deg,#589491,#C4BFCC 45%,#A17441);filter:blur(7px);transform:scale(.9);margin:.4rem 0 1.2rem}
+.detail p{margin-bottom:1rem;font-size:.95rem}
+@media(prefers-reduced-motion:reduce){.ph,.ph::after,.btn{transition:none}}
+@media print{body::before,body::after{display:none}.row{padding-top:2.5rem;break-inside:avoid}}
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <h1 class="title">The Untouchable Gallery</h1>
+  <p class="concept">Idealização</p>
+  <p class="lead">Um museu onde só entra o que é impecável, e onde nada pode ser visto de perto. O nome vem do conceito, não do álbum.</p>
+</header>
+
+<section class="row">
+  <h2>Leitura da capa</h2>
+  <div>
+    <p class="note">Cores medidas na imagem da capa, por região (valor mediano dos pixels, então são aproximadas). Marquei as que viraram identidade.</p>
+    <div class="dots">
+      <div class="dot used"><i style="background:#E7564E"></i><span><b>#E7564E</b>título, face</span></div>
+      <div class="dot used"><i style="background:#B11C38"></i><span><b>#B11C38</b>título, lateral</span></div>
+      <div class="dot used"><i style="background:#790A1C"></i><span><b>#790A1C</b>título, sombra</span></div>
+      <div class="dot used"><i style="background:#4E1819"></i><span><b>#4E1819</b>traços escuros</span></div>
+      <div class="dot used"><i style="background:#EBE1DC"></i><span><b>#EBE1DC</b>nuvem, luz</span></div>
+      <div class="dot used"><i style="background:#589491"></i><span><b>#589491</b>céu do canto</span></div>
+      <div class="dot used"><i style="background:#A2693F"></i><span><b>#A2693F</b>moldura</span></div>
+      <div class="dot"><i style="background:#D9BD9B"></i><span><b>#D9BD9B</b>areia, luz</span></div>
+      <div class="dot"><i style="background:#A17441"></i><span><b>#A17441</b>areia, sombra</span></div>
+      <div class="dot"><i style="background:#C4BFCC"></i><span><b>#C4BFCC</b>nuvem, lilás</span></div>
+      <div class="dot"><i style="background:#A33008"></i><span><b>#A33008</b>cabelo do anjo</span></div>
+      <div class="dot"><i style="background:#9E6F3E"></i><span><b>#9E6F3E</b>chapéu</span></div>
+      <div class="dot"><i style="background:#4569A7"></i><span><b>#4569A7</b>bandana</span></div>
+      <div class="dot"><i style="background:#5B1854"></i><span><b>#5B1854</b>viseira</span></div>
+      <div class="dot"><i style="background:#CE698B"></i><span><b>#CE698B</b>botas</span></div>
+    </div>
+    <p class="note" style="margin-top:1.25rem">O que sobrou: um mundo quente de areia e terra, uma lateral carmim que dá peso às letras, e um único pedaço de céu azul-esverdeado no canto, o céu que o anjo habita e o cowboy não alcança. A nuvem clara é o véu que separa os dois.</p>
+  </div>
+</section>
+
+<section class="row">
+  <h2>Paleta</h2>
+  <div>
+    <p class="note">Os tons de areia, nuvem, céu e vermelho vêm da capa; fundo, erro e sucesso são versões clareadas ou escurecidas para garantir leitura.</p>
+    <div class="sw">
+      <div><div class="chip" style="background:#E8D5B7"></div><b>#E8D5B7</b><span>Fundo: areia da capa, clareada.</span></div>
+      <div><div class="chip" style="background:#EBE1DC"></div><b>#EBE1DC</b><span>Cartões: a nuvem. Também o véu sobre as fotos.</span></div>
+      <div><div class="chip" style="background:#4E1819"></div><b>#4E1819</b><span>Texto: o marrom-vinho dos traços escuros.</span></div>
+      <div><div class="chip" style="background:#B11C38"></div><b>#B11C38</b><span>Destaque: botões e links. Lateral das letras do título.</span></div>
+      <div><div class="chip" style="background:#E7564E"></div><b>#E7564E</b><span>Apoio vivo: face das letras. Só decoração e títulos grandes.</span></div>
+      <div><div class="chip" style="background:#589491"></div><b>#589491</b><span>Apoio frio: o céu. Detalhes, ícones, nunca texto.</span></div>
+      <div><div class="chip" style="background:#F6D5D0"></div><b>#F6D5D0 · #790A1C</b><span>Erro: fundo claro e texto da sombra do título.</span></div>
+      <div><div class="chip" style="background:#DCEBE6"></div><b>#DCEBE6 · #24605C</b><span>Sucesso: o céu, escurecido.</span></div>
+    </div>
+    <div class="card" style="margin-top:2rem">
+      <h3>Contraste</h3>
+      <p class="note" style="margin:.2rem 0 .8rem">Razões aproximadas pela fórmula WCAG: 4,5:1 para texto comum e 3:1 para texto grande.</p>
+      <table>
+        <tr><th>Combinação</th><th>Razão</th><th>Uso</th></tr>
+        <tr><td>#4E1819 sobre #E8D5B7</td><td>10,0:1</td><td>Texto no fundo</td></tr>
+        <tr><td>#4E1819 sobre #EBE1DC</td><td>11,1:1</td><td>Texto nos cartões</td></tr>
+        <tr><td>Branco sobre #B11C38</td><td>6,8:1</td><td>Botões</td></tr>
+        <tr><td>#790A1C sobre #F6D5D0</td><td>8,2:1</td><td>Aviso de erro</td></tr>
+        <tr><td>#24605C sobre #DCEBE6</td><td>5,9:1</td><td>Aviso de sucesso</td></tr>
+        <tr><td>#E7564E sobre #E8D5B7</td><td>2,5:1</td><td>Não usar para texto</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="row">
+  <h2>Tipografia</h2>
+  <div class="card">
+    <div class="type-row"><small>Título · Anton · 56px, maiúsculas</small><span style="font:400 3.5rem/1.05 var(--display);text-transform:uppercase;letter-spacing:.03em;color:var(--red)">Galeria</span></div>
+    <div class="type-row"><small>Subtítulo · Anton · 28px</small><span style="font:400 1.75rem/1.1 var(--display);text-transform:uppercase;letter-spacing:.03em">Beleza limpa</span></div>
+    <div class="type-row"><small>Texto · Nunito 400 · 16px</small><span>Aprecie de longe, sem pressa e sem tocar.</span></div>
+    <div class="type-row"><small>Botão · Nunito 700 · 16px</small><button class="btn" type="button">Ver de perto</button></div>
+    <p class="note" style="margin:1rem 0 0">Anton lembra as letras condensadas e pesadas da capa; Nunito, de cantos redondos, acompanha a ilustração macia.</p>
+  </div>
+</section>
+
+<section class="row">
+  <h2>Forma</h2>
+  <div>
+    <p class="note">Cantos bem arredondados, como a nuvem. Sombra quente e difusa em vez de borda. A única linha fina é a moldura da página, tirada da borda do cartão-postal da capa.</p>
+    <div class="shapes">
+      <div class="card"><h3>Cartões</h3><p class="note" style="margin:0">Raio de 24px, sombra vinho a 16%, sem borda.</p></div>
+      <div class="card"><h3>Botões</h3><p class="note" style="margin:0 0 .8rem">Pílula, sem sombra.</p><button class="btn" type="button">Voltar</button></div>
+      <div class="card"><div class="alert err">Não foi possível carregar esta foto. Tente de novo.</div><div class="alert ok" style="margin-top:.7rem">Lugar salvo nos favoritos.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="row">
+  <h2>Direção</h2>
+  <div>
+    <p class="dir">“Aprecie de longe: beleza limpa que foge ao toque.”</p>
+    <p class="note" style="margin-top:1rem">Regra para as dúvidas: se a pessoa tentar analisar a imagem de perto, o site impede a visualização clara.</p>
+  </div>
+</section>
+
+<section class="row">
+  <h2>Duas telas</h2>
+  <div>
+    <p class="note">Esboços em HTML. Passe o mouse (ou use Tab) sobre uma foto da galeria para ver o recuo e o desfoque.</p>
+    <div class="screens">
+      <div class="screen">
+        <h4>Galeria</h4>
+        <div class="filters"><span>Todos</span><span>Praias</span><span>Montanhas</span></div>
+        <div class="photos"><div class="ph p1" tabindex="0"></div><div class="ph p2" tabindex="0"></div><div class="ph p3" tabindex="0"></div><div class="ph p4" tabindex="0"></div></div>
+        <p class="cap">Cada foto recua e desfoca quando alguém tenta chegar perto.</p>
+      </div>
+      <div class="screen detail">
+        <h4>Detalhe</h4>
+        <div class="detail-img"></div>
+        <p>Chegar mais perto não ajuda: a foto continua desfocada.</p>
+        <button class="btn" type="button">Voltar à galeria</button>
+        <div class="alert err" style="margin-top:1rem">Esta página não existe. Volte à galeria e escolha outro lugar.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+</body>
+</html>

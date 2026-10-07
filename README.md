@@ -1,59 +1,55 @@
-# PerfectionMuseum
+# Museu da Perfeição Alheia
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.1.
+SPA em Angular 22 criada a partir da capa de **Ángel** (Grupo Frontera x Romeo Santos), para o trabalho "Da capa para a tela".
 
-## Development server
+> Escolhi esta capa porque ela fala de **idealização**, e por isso meu site é um museu onde cada obra perfeita se afasta quando você tenta chegar perto.
 
-To start a local development server, run:
+## O que o site faz
 
-```bash
-ng serve
-```
+- **Galeria**: fotos de lugares e objetos impecáveis, vindas da API do [Pexels](https://www.pexels.com/api/), por sala (praias, montanhas, lagos…), com filtro de texto e paginação.
+- **Obra** (`/obra/:id`): a foto foge do cursor, fica menor e mais borrada a cada tentativa de aproximação. Afastar-se devolve a nitidez.
+- **Desejadas**: obras guardadas (persistem no navegador), sempre desfocadas.
+- **Indicar**: formulário reativo com validação.
+- **Sobre** e página 404 no tema.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Como rodar
 
 ```bash
-ng generate component component-name
+npm install
+# 1. Pegue uma chave gratuita em https://www.pexels.com/api/
+# 2. Cole em src/environments/environment.ts  (pexelsKey)
+npm start        # http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Estrutura
 
-```bash
-ng generate --help
+```
+src/app/
+  models/        tipos e salas (categorias)
+  services/      PexelsService (httpResource), FavoritesService (signals)
+  components/    navbar, photo-card, category-chips (reutilizáveis)
+  pages/         gallery, detail, collection, suggest, about, not-found
+src/styles.css   identidade visual (@theme do Tailwind) + CSS próprio
+docs/            identidade visual (HTML), guia do moodboard
+CONCEITO.md      conceito e ligação funcional
 ```
 
-## Building
+## Requisitos do trabalho, onde estão
 
-To build the project run:
+| Requisito | Onde |
+|---|---|
+| 3+ rotas com menu e destaque | `app.routes.ts`, `navbar.ts` (`routerLinkActive`) |
+| Rota com parâmetro | `obra/:id` → `detail.ts` |
+| Rota `**` no tema | `not-found.ts` |
+| 2+ componentes com `input()` | `photo-card.ts`, `category-chips.ts` |
+| `output()` | `opened`/`toggled` no card, `selected` nos chips |
+| `@if`, `@for` com `track` e `@empty` | `gallery.ts`, `collection.ts` |
+| `computed` com trabalho real | `visible`, `summary` (galeria); `blur`, `scale`, `offset` (obra); `topPhotographer`, `sorted` (desejadas) |
+| Serviço com `inject()` + API pública | `pexels.service.ts` (`httpResource`) |
+| Carregando e erro na tela | `gallery.ts`, `detail.ts` |
+| Formulário com validação | `suggest.ts` (botão desabilitado enquanto inválido) |
+| Tailwind + CSS próprio | `styles.css`, classes nos templates |
 
-```bash
-ng build
-```
+## Créditos
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Fotografias: [Pexels](https://www.pexels.com), com crédito ao fotógrafo em cada obra.

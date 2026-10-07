@@ -1,0 +1,20 @@
+# Conceito
+
+## Capa escolhida
+**Ángel**, Grupo Frontera x Romeo Santos. Imagem: https://www.youtube.com/watch?v=h8w3zyx20Ok.
+
+## Palavra-conceito: idealização
+A capa mostra um anjo desenhado de costas. Sem rosto, sem expressão: quem olha preenche o resto.
+Dessa ausência veio a ideia de que um amor, uma pessoa ou um objetivo parece perfeito e intocável
+porque nunca o vemos de frente, e de perto. A palavra veio da imagem do anjo de costas.
+
+## Ligação funcional
+Se idealizar é manter a perfeição pela distância, o site precisa se comportar assim. O **Museu da Perfeição Alheia**
+exibe só lugares e objetos impecáveis (API do Pexels), e quando você tenta se aproximar para ver os detalhes, a imagem recua:
+fica menor, borra e foge do cursor. De longe ela é nítida; de perto, não dá para analisar. As obras desejadas ficam
+desfocadas na coleção. O site não conta a ideia: ele faz você sentir.
+
+## O que pedi para a IA e o que decidi sozinho
+
+- **Decidi sozinho:** a capa, a palavra-conceito (idealização), a ideia do museu, proposta de identidade visual, o comportamento de a imagem se afastar e a escolha do Pexels.
+- **Pedi para a IA:** a estrutura do projeto Angular, o código dos componentes e do serviço.

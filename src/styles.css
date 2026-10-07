@@ -1,3 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
 
-@import 'tailwindcss';
+/* ===== Identidade visual v2 (Fase 3): fonte única das decisões ===== */
+@theme {
+  --color-parede: #E8D5B7;   /* fundo: areia */
+  --color-moldura: #EBE1DC;  /* cartões e molduras: nuvem */
+  --color-tinta: #4E1819;    /* texto: vinho escuro */
+  --color-asa: #B11C38;      /* destaque: tudo que é clicável */
+  --color-asa-fundo: #790A1C;/* destaque em hover */
+  --color-coral: #E7564E;    /* apoio: coral do título da capa */
+  --color-nevoa: #589491;    /* apoio: azul-petróleo do céu */
+  --color-quadro: #A2693F;   /* apoio: madeira da moldura */
+  --color-erro: #790A1C;
+  --color-sucesso: #24605C;
+
+  --font-display: "Anton", Impact, "Arial Narrow", sans-serif;
+  --font-sans: "Nunito", system-ui, sans-serif;
+}
+
+html { background: var(--color-parede); color: var(--color-tinta); }
+body { font-family: var(--font-sans); font-size: 1rem; line-height: 1.65; min-height: 100dvh; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; letter-spacing: .03em; }
+
+:focus-visible { outline: 3px solid var(--color-asa); outline-offset: 3px; }
+
+/* Forma: cantos bem arredondados e sombra suave em tudo */
+@layer base {
+  button, input, textarea { border-radius: 14px; }
+}
+.moldura {
+  background: var(--color-moldura);
+  border: 2px solid color-mix(in srgb, var(--color-quadro) 55%, transparent);
+  border-radius: 24px;
+  box-shadow: 0 14px 34px rgba(110, 38, 25, .16);
+  padding: .7rem;
+}
+.moldura .overflow-hidden { border-radius: 16px; }
+
+/* CSS próprio: a obra que se afasta (o Tailwind não cobre filter + transições coordenadas) */
+.vitrine-img { transition: transform .8s cubic-bezier(.2,.8,.2,1), filter .6s ease; }
+.group:hover .vitrine-img { transform: scale(.94); filter: blur(1.5px) saturate(.9); }
+.vitrine-img.distante { filter: blur(5px); transform: scale(.9); }
+.palco-img { transition: transform .7s cubic-bezier(.2,.8,.2,1), filter .5s ease; will-change: transform, filter; user-select: none; -webkit-user-drag: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .vitrine-img, .palco-img { transition: none; }
+}
